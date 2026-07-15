@@ -1,0 +1,22 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Brand gradient: matches linear-gradient(96.09deg, --blue-8 12.17%, --blue-10 90.71%) -->
+  <defs>
+    <linearGradient id="brand" gradientUnits="userSpaceOnUse" x1="1.44" y1="228.8" x2="510.56" y2="283.2">
+      <stop offset="12.17%" stop-color="#5eb1ef" />
+      <stop offset="90.71%" stop-color="#0588f0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Rounded square tile -->
+  <rect width="512" height="512" rx="112" fill="url(#brand)" />
+
+  <!-- Monogram M -->
+  <path
+    d="M144 368 V144 L256 280 L368 144 V368"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="54.4"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>
