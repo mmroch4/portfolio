@@ -45,7 +45,7 @@ export function CollapsibleSection({ children, title, initialOpen = false, id }:
                         {/* Heading wraps the trigger (WAI-ARIA accordion pattern):
                             the button is keyboard-operable and exposes aria-expanded,
                             while the section stays in the heading outline. */}
-                        <h2 className="w-full">
+                        <h2 className="w-full text-center">
                             <CollapsibleTrigger className="group flex w-full flex-col xs:flex-row gap-5 items-center justify-between cursor-pointer text-left text-sm tracking-[2px] text-foreground uppercase font-medium">
                                 {title}
                                 <ChevronDown
