@@ -3,8 +3,11 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { socialMediaData } from "@/data/social-media";
 import { MapIcon, SparkIcon, socialIconMap } from "@/components/icons";
+import { format } from "@/content";
+import type { Chrome, Hero } from "@/content/types";
+import { siteConfig } from "@/config/site";
 
-export function HeroSection() {
+export function HeroSection({ hero, chrome }: { hero: Hero; chrome: Chrome }) {
     return (
         <section>
             <div className="container">
@@ -12,7 +15,7 @@ export function HeroSection() {
                     <div className="w-full h-72">
                         <Image
                             src={"/images/hero-sec/banner.png"}
-                            alt=""
+                            alt={hero.bannerAlt}
                             width={1080}
                             height={267}
                             priority
@@ -26,7 +29,7 @@ export function HeroSection() {
                             <div className="absolute top-0 transform -translate-y-1/2">
                                 <Image
                                     src={"/images/hero-sec/profile.png"}
-                                    alt="Miguel Rocha"
+                                    alt={hero.profileAlt}
                                     width={145}
                                     height={145}
                                     priority
@@ -35,13 +38,13 @@ export function HeroSection() {
                                 <span className="absolute bottom-2.5 right-5 w-4 h-4 bg-green-500 border-2 border-background rounded-full" />
                             </div>
                             <div className="flex flex-col gap-2 sm:gap-3 items-center text-center xs:items-start">
-                                <h1 className="font-medium">Miguel Rocha</h1>
+                                <h1 className="font-medium">{hero.name}</h1>
                                 <p className="text-[var(--blue-11)] font-normal">
-                                    Software Engineer
+                                    {hero.role}
                                 </p>
                                 <div className="flex items-center gap-2">
                                     <MapIcon className="w-5 h-5 text-foreground" />
-                                    <p className="text-foreground">Porto, Portugal</p>
+                                    <p className="text-foreground">{hero.location}</p>
                                 </div>
                             </div>
                             <div className="flex flex-col md:flex-row items-center gap-4">
@@ -53,7 +56,10 @@ export function HeroSection() {
                                                 href={value.href}
                                                 key={index}
                                                 target="_blank"
-                                                aria-label={`${value.icon} profile`}
+                                                aria-label={format(
+                                                    chrome.socialProfileLabel,
+                                                    { name: value.icon },
+                                                )}
                                                 className="w-fit p-2.5 sm:p-3.5 hover:bg-primary/5 border border-border rounded-full"
                                             >
                                                 <Icon className="w-5 h-5 text-foreground" />
@@ -65,13 +71,13 @@ export function HeroSection() {
                                 <Button className="h-auto rounded-full p-0">
                                     <Link
                                         target="_blank"
-                                        href="https://discord.com/users/526071679936626602"
+                                        href={siteConfig.social.discord}
                                         className="inline-block p-0.5 rounded-full bg-[linear-gradient(96.09deg,_var(--blue-8)_12.17%,_var(--blue-10)_90.71%)]"
                                     >
                                         <span className="flex items-center gap-3 bg-primary hover:bg-[linear-gradient(96.09deg,_var(--blue-8)_12.17%,_var(--blue-10)_90.71%)] py-2.5 px-5 rounded-full">
                                             <SparkIcon className="w-3.5 h-3.5 text-primary-foreground" />
                                             <span className="text-sm sm:text-base font-semibold text-primary-foreground">
-                                                Get in touch
+                                                {hero.cta}
                                             </span>
                                         </span>
                                     </Link>

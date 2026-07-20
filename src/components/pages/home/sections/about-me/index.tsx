@@ -1,7 +1,15 @@
 import { Badge } from "@/components/ui/badge";
-import { servicesData } from "@/data/services";
+import type { About } from "@/content/types";
 
-export function AboutMe() {
+export function AboutMe({
+    title,
+    about,
+    services,
+}: {
+    title: string;
+    about: About;
+    services: string[];
+}) {
     return (
         <section id="about" className="scroll-mt-20">
             <div className="container">
@@ -9,25 +17,24 @@ export function AboutMe() {
                     <div className="flex flex-col gap-9 sm:gap-12 max-w-3xl mx-auto px-4 sm:px-7 py-11 md:py-20">
                         <div className="flex flex-col gap-4">
                             <h2 className="text-sm tracking-[2px] text-foreground uppercase font-medium">
-                                About Me
+                                {title}
                             </h2>
                             <p className="text-xl sm:text-2xl md:text-3xl lg:text-[32px] text-foreground">
-                                Hey there. I&rsquo;m Miguel — Full-Stack Software Engineer based in
-                                Portugal, currently crafting{" "}
+                                {about.introLead}
                                 <span className="bg-[var(--blue-4)]">
-                                    high-performance web applications, scalable digital products,
-                                    and algorithmic solutions.
+                                    {about.introHighlight}
                                 </span>
                             </p>
                             <h5 className="text-secondary font-normal">
-                                Software Engineer @TreeTree2, and main developer of Prisma and
-                                Folhas.
+                                {about.subline}
                             </h5>
                         </div>
                         <div className="flex flex-col gap-4">
-                            <p className="text-sm text-foreground uppercase font-medium">SERVICES</p>
+                            <p className="text-sm text-foreground uppercase font-medium">
+                                {about.servicesLabel}
+                            </p>
                             <div className="flex flex-wrap gap-2 sm:gap-3">
-                                {servicesData.map((value, index) => {
+                                {services.map((value, index) => {
                                     return (
                                         <Badge
                                             variant={"outline"}

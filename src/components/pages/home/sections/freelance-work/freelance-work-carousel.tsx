@@ -11,10 +11,17 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import Autoplay from "embla-carousel-autoplay";
-import { FreelanceWork } from "@/data/freelance-work";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
+import { format } from "@/content";
+import type { Chrome, FreelanceWork } from "@/content/types";
 
-function FreelanceWorkCard({ freelanceWork }: { freelanceWork: FreelanceWork }) {
+function FreelanceWorkCard({
+    freelanceWork,
+    chrome,
+}: {
+    freelanceWork: FreelanceWork;
+    chrome: Chrome;
+}) {
     return (
         <Link href={freelanceWork.href} target="_blank">
             <div
@@ -25,7 +32,9 @@ function FreelanceWorkCard({ freelanceWork }: { freelanceWork: FreelanceWork }) 
                 <div className="overflow-hidden">
                     <Image
                         src={freelanceWork.image}
-                        alt={`${freelanceWork.title} preview`}
+                        alt={format(chrome.projectPreviewAlt, {
+                            title: freelanceWork.title,
+                        })}
                         width={490}
                         height={300}
                         sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
@@ -45,7 +54,17 @@ function FreelanceWorkCard({ freelanceWork }: { freelanceWork: FreelanceWork }) 
     );
 }
 
-export function FreelanceWorkCarousel({ data, delay = 5000, dimensions = "basis-full sm:basis-1/2 md:basis-1/3" }: { data: FreelanceWork[]; delay?: number; dimensions?: string }) {
+export function FreelanceWorkCarousel({
+    data,
+    chrome,
+    delay = 5000,
+    dimensions = "basis-full sm:basis-1/2 md:basis-1/3",
+}: {
+    data: FreelanceWork[];
+    chrome: Chrome;
+    delay?: number;
+    dimensions?: string;
+}) {
     const reducedMotion = useReducedMotion();
 
     return (
@@ -71,19 +90,19 @@ export function FreelanceWorkCarousel({ data, delay = 5000, dimensions = "basis-
                 <CarouselContent>
                     {data.map((value, index) => {
                         return (
-                            <CarouselItem
-                                key={index}
-                                className={dimensions}
-                            >
-                                <FreelanceWorkCard freelanceWork={value} />
+                            <CarouselItem key={index} className={dimensions}>
+                                <FreelanceWorkCard
+                                    freelanceWork={value}
+                                    chrome={chrome}
+                                />
                             </CarouselItem>
                         );
                     })}
                 </CarouselContent>
 
                 <div className="flex items-center justify-center gap-4 border-t border-border p-4">
-                    <CarouselPrevious />
-                    <CarouselNext />
+                    <CarouselPrevious label={chrome.carouselPrevious} />
+                    <CarouselNext label={chrome.carouselNext} />
                 </div>
             </Carousel>
         </div>

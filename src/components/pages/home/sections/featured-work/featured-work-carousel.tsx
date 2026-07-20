@@ -7,14 +7,21 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel";
-import { FeaturedWork, featuredWorkData } from "@/data/featured-work";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import Autoplay from "embla-carousel-autoplay";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
+import { format } from "@/content";
+import type { Chrome, FeaturedWork } from "@/content/types";
 
-function FeaturedWorkCard({ featuredWork }: { featuredWork: FeaturedWork }) {
+function FeaturedWorkCard({
+    featuredWork,
+    chrome,
+}: {
+    featuredWork: FeaturedWork;
+    chrome: Chrome;
+}) {
     return (
         <Link href={featuredWork.href} target="_blank">
             <div
@@ -25,7 +32,9 @@ function FeaturedWorkCard({ featuredWork }: { featuredWork: FeaturedWork }) {
                 <div className="overflow-hidden">
                     <Image
                         src={featuredWork.image}
-                        alt={`${featuredWork.title} preview`}
+                        alt={format(chrome.projectPreviewAlt, {
+                            title: featuredWork.title,
+                        })}
                         width={490}
                         height={300}
                         sizes="(max-width: 768px) 100vw, 50vw"
@@ -44,7 +53,13 @@ function FeaturedWorkCard({ featuredWork }: { featuredWork: FeaturedWork }) {
     );
 }
 
-export function FeaturedWorkCarousel() {
+export function FeaturedWorkCarousel({
+    data,
+    chrome,
+}: {
+    data: FeaturedWork[];
+    chrome: Chrome;
+}) {
     const reducedMotion = useReducedMotion();
 
     return (
@@ -68,18 +83,18 @@ export function FeaturedWorkCarousel() {
                 }
             >
                 <CarouselContent>
-                    {featuredWorkData.map((value, index) => {
+                    {data.map((value, index) => {
                         return (
                             <CarouselItem key={index} className="basis-full md:basis-1/2">
-                                <FeaturedWorkCard featuredWork={value} />
+                                <FeaturedWorkCard featuredWork={value} chrome={chrome} />
                             </CarouselItem>
                         );
                     })}
                 </CarouselContent>
 
                 <div className="flex items-center justify-center gap-4 border-t border-border p-4">
-                    <CarouselPrevious />
-                    <CarouselNext />
+                    <CarouselPrevious label={chrome.carouselPrevious} />
+                    <CarouselNext label={chrome.carouselNext} />
                 </div>
             </Carousel>
         </div>

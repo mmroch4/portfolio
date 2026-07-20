@@ -1,8 +1,9 @@
 import { socialMediaData } from "@/data/social-media";
 import { socialIconMap } from "@/components/icons";
+import { format } from "@/content";
 import Link from "next/link";
 
-export function Footer() {
+export function Footer({ socialProfileLabel }: { socialProfileLabel: string }) {
     return (
         <footer className="-translate-y-px bg-background border-t border-border">
             <div className="container">
@@ -16,7 +17,9 @@ export function Footer() {
                                         href={value.href}
                                         key={index}
                                         target="_blank"
-                                        aria-label={`${value.icon} profile`}
+                                        aria-label={format(socialProfileLabel, {
+                                            name: value.icon,
+                                        })}
                                     >
                                         <Icon className="w-5 h-5 text-foreground" />
                                     </Link>

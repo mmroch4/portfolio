@@ -1,14 +1,23 @@
-import { experienceData } from "@/data/experience";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { CollapsibleBulletPoints } from "@/components/blocks/collapsible-bullet-points";
 import { CollapsibleSection } from "@/components/blocks/collapsible-section";
+import { format } from "@/content";
+import type { Chrome, Experience as ExperienceItem } from "@/content/types";
 
-export function Experience() {
+export function Experience({
+    title,
+    data,
+    chrome,
+}: {
+    title: string;
+    data: ExperienceItem[];
+    chrome: Chrome;
+}) {
     return (
-        <CollapsibleSection id="experience" title="Experience" initialOpen>
+        <CollapsibleSection id="experience" title={title} initialOpen>
             <div className="flex flex-col max-w-3xl mx-auto px-4 sm:px-7 py-9 md:py-16 ">
-                {experienceData.map((value, index) => {
+                {data.map((value, index) => {
                     return (
                         <div
                             key={index}
@@ -16,7 +25,9 @@ export function Experience() {
                         >
                             <Image
                                 src={value.icon}
-                                alt={`${value.company} logo`}
+                                alt={format(chrome.companyLogoAlt, {
+                                    name: value.company,
+                                })}
                                 width={value.width}
                                 height={value.height}
                             />
@@ -26,14 +37,22 @@ export function Experience() {
                                     <p className="text-foreground">{value.company}</p>
                                 </div>
                                 <div className="flex items-center gap-2.5 border border-border rounded-lg py-1.5 px-3">
+                                    {/* Filled dot = ongoing role. Driven by the
+                                        `current` flag rather than by comparing the
+                                        end year to a literal, which only worked
+                                        while that literal was English. */}
                                     <div
                                         className={cn("w-4 h-2 rounded-sm", {
-                                            "bg-primary": value.endYear === "Present",
-                                            "bg-primary/10": value.endYear !== "Present",
+                                            "bg-primary": value.current,
+                                            "bg-primary/10": !value.current,
                                         })}
                                     />
                                     <p className="text-sm xs:text-base text-foreground">
-                                        {value.startYear} – {value.endYear} · {value.location}
+                                        {value.startYear} –{" "}
+                                        {value.current
+                                            ? chrome.presentLabel
+                                            : value.endYear}{" "}
+                                        · {value.location}
                                     </p>
                                 </div>
                             </div>

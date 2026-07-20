@@ -1,9 +1,9 @@
 import { AnnouncementBar } from "./announcement-bar";
 
-export function Header() {
+export function Header({ announcement }: { announcement: string }) {
     return (
         <header>
-            <AnnouncementBar />
+            <AnnouncementBar announcement={announcement} />
         </header>
     );
 }

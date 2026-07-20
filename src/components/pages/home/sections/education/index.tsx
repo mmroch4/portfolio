@@ -1,21 +1,27 @@
 import { CollapsibleSection } from "@/components/blocks/collapsible-section";
-import { educationData } from "@/data/education";
 import { cn } from "@/lib/utils";
+import type { Education as EducationItem } from "@/content/types";
 
-export function Education() {
+export function Education({
+    title,
+    data,
+}: {
+    title: string;
+    data: EducationItem[];
+}) {
     return (
-        <CollapsibleSection id="education" title="Education" initialOpen>
+        <CollapsibleSection id="education" title={title} initialOpen>
             <div className="relative max-w-3xl mx-auto px-4 sm:px-0 py-10">
                 <div className="hidden sm:flex absolute left-5 sm:left-[15.9rem] sm:translate-x-1/2 top-0 bottom-0 w-px bg-primary/10" />
 
                 <div className="relative">
-                    {educationData.map((item, index) => (
+                    {data.map((item, index) => (
                         <div
                             key={index}
                             className={cn(
                                 "relative flex flex-col sm:flex-row sm:items-start gap-4",
                                 {
-                                    "mb-8 sm:mb-16": index !== educationData.length - 1,
+                                    "mb-8 sm:mb-16": index !== data.length - 1,
                                 },
                             )}
                         >

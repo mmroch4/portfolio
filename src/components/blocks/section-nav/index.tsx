@@ -1,8 +1,12 @@
 "use client";
 
-import { sectionNav } from "@/config/sections";
 import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
+
+interface SectionNavItem {
+    id: string;
+    label: string;
+}
 
 /**
  * Sticky, horizontally-scrollable in-page anchor nav.
@@ -11,14 +15,23 @@ import { useEffect, useRef, useState } from "react";
  * collapsible sections) the matching CollapsibleSection opens itself off the
  * same hashchange. The active pill is tracked with an IntersectionObserver,
  * and on small screens the nav auto-scrolls to keep that pill in view.
+ *
+ * Items are passed in rather than imported so the labels can be localized —
+ * the section ids stay identical across locales, only the text changes.
  */
-export function SectionNav() {
+export function SectionNav({
+    items,
+    ariaLabel,
+}: {
+    items: SectionNavItem[];
+    ariaLabel: string;
+}) {
     const [active, setActive] = useState<string | null>(null);
     const listRef = useRef<HTMLUListElement>(null);
     const linkRefs = useRef(new Map<string, HTMLAnchorElement>());
 
     useEffect(() => {
-        const els = sectionNav
+        const els = items
             .map(({ id }) => document.getElementById(id))
             .filter((el): el is HTMLElement => el !== null);
 
@@ -35,7 +48,7 @@ export function SectionNav() {
 
         els.forEach((el) => observer.observe(el));
         return () => observer.disconnect();
-    }, []);
+    }, [items]);
 
     // Keep the active pill within the horizontal scroll strip. When a section
     // becomes active but its link is scrolled out of view (small screens), nudge
@@ -59,7 +72,7 @@ export function SectionNav() {
 
     return (
         <nav
-            aria-label="Section navigation"
+            aria-label={ariaLabel}
             className="sticky top-0 z-30 border-b border-border bg-background/80 backdrop-blur-sm"
         >
             <div className="container">
@@ -67,7 +80,7 @@ export function SectionNav() {
                     ref={listRef}
                     className="flex gap-1 overflow-x-auto py-2 items-center [&>li:first-child]:ml-auto [&>li:last-child]:mr-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
                 >
-                    {sectionNav.map(({ id, label }) => (
+                    {items.map(({ id, label }) => (
                         <li key={id}>
                             <a
                                 ref={(el) => {
