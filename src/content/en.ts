@@ -164,7 +164,7 @@ export const en: Dictionary = {
             subtitle: "TreeTree2 — Lisbon, Portugal",
         },
         {
-            date: "Jun 2023 - Present",
+            date: "Jun 2023 - Jun 2024",
             title: "Software Engineering",
             subtitle: "Rocketseat — Remote",
         },
