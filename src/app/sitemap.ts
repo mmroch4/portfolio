@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { siteConfig } from "@/config/site";
 import { locales } from "@/lib/i18n/config";
 import { pageKeys } from "@/lib/i18n/routes";
 import { languageAlternates, pageUrl } from "@/lib/seo";
@@ -9,7 +10,7 @@ import { languageAlternates, pageUrl } from "@/lib/seo";
  * its counterpart in the other language.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-    return locales.flatMap((locale) =>
+    const localizedPages = locales.flatMap((locale) =>
         pageKeys.map((page) => ({
             url: pageUrl(locale, page),
             changeFrequency: "monthly" as const,
@@ -19,4 +20,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
             },
         })),
     );
+
+    // The CV is a static English-only page served from `public/`, so it sits
+    // outside the i18n routes map and is appended by hand.
+    const cv = {
+        url: new URL("/cv.html", siteConfig.url).toString(),
+        changeFrequency: "monthly" as const,
+        priority: 0.6,
+    };
+
+    return [...localizedPages, cv];
 }

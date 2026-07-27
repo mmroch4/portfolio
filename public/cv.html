@@ -1,0 +1,892 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Miguel Rocha — Software Engineer · CV</title>
+        <meta
+            name="description"
+            content="CV of Miguel Rocha — Full-Stack Software Engineer based in Porto, Portugal. Building high-performance web applications, scalable digital products, and algorithmic solutions."
+        />
+        <meta name="author" content="Miguel Rocha" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://miguelrocha.dev/cv.html" />
+
+        <meta property="og:type" content="profile" />
+        <meta property="og:url" content="https://miguelrocha.dev/cv.html" />
+        <meta property="og:title" content="Miguel Rocha — Software Engineer · CV" />
+        <meta
+            property="og:description"
+            content="CV of Miguel Rocha — Full-Stack Software Engineer based in Porto, Portugal."
+        />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Structured data for answer engines / crawlers. Mirrors the Person
+         entity on miguelrocha.dev (same @id) so search engines reconcile the
+         CV and the portfolio into one entity. Kept complete even though the
+         visible CV is condensed to a single page. -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@graph": [
+                    {
+                        "@type": "Person",
+                        "@id": "https://miguelrocha.dev/#person",
+                        "name": "Miguel Rocha",
+                        "url": "https://miguelrocha.dev",
+                        "jobTitle": "Software Engineer",
+                        "description": "Miguel Rocha — Full-Stack Software Engineer based in Porto, Portugal. Building high-performance web applications, scalable digital products, and algorithmic solutions.",
+                        "email": "mailto:miguelrocha.dev@gmail.com",
+                        "telephone": "+351924718182",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "Porto",
+                            "addressCountry": "PT"
+                        },
+                        "worksFor": { "@type": "Organization", "name": "TreeTree2" },
+                        "alumniOf": [
+                            { "@type": "Organization", "name": "University of Porto" },
+                            { "@type": "Organization", "name": "TreeTree2" },
+                            { "@type": "Organization", "name": "Rocketseat" }
+                        ],
+                        "knowsAbout": [
+                            "Full-Stack Development",
+                            "Software Engineering",
+                            "Algorithms & Logic",
+                            "Web Applications",
+                            "TypeScript",
+                            "React.js",
+                            "Next.js",
+                            "Node.js",
+                            "GraphQL",
+                            "RESTful APIs",
+                            "Relational Databases",
+                            "Responsive UI"
+                        ],
+                        "knowsLanguage": [
+                            { "@type": "Language", "name": "Portuguese" },
+                            { "@type": "Language", "name": "English" }
+                        ],
+                        "hasCredential": [
+                            {
+                                "@type": "EducationalOccupationalCredential",
+                                "name": "Cambridge English: C1 Advanced (CAE)",
+                                "credentialCategory": "certificate"
+                            },
+                            {
+                                "@type": "EducationalOccupationalCredential",
+                                "name": "Cambridge English: B2 First (FCE)",
+                                "credentialCategory": "certificate"
+                            }
+                        ],
+                        "award": [
+                            "ICPC SWERC 2025 — 85th place (Lisbon, Portugal)",
+                            "MIUP 2025 — Bronze Medal, 4th place (Aveiro, Portugal)",
+                            "Prémio Pedro Matos 2025 — 1st place (Leiria, Portugal)",
+                            "Olimpíadas Nacionais de Informática 2025 — 3rd place, qualifiers",
+                            "Ciências RALLY PRO 2025 — 1st place (Lisbon, Portugal)"
+                        ],
+                        "sameAs": [
+                            "https://github.com/mmroch4",
+                            "https://www.linkedin.com/in/miguelmartinsrocha/",
+                            "https://discord.com/users/526071679936626602"
+                        ]
+                    },
+                    {
+                        "@type": "ProfilePage",
+                        "@id": "https://miguelrocha.dev/cv.html#webpage",
+                        "url": "https://miguelrocha.dev/cv.html",
+                        "name": "Miguel Rocha — Software Engineer · CV",
+                        "inLanguage": "en",
+                        "about": { "@id": "https://miguelrocha.dev/#person" },
+                        "mainEntity": { "@id": "https://miguelrocha.dev/#person" }
+                    }
+                ]
+            }
+        </script>
+
+        <style>
+            /* Design tokens copied from the portfolio (Radix Slate + Blue, light). */
+            :root {
+                --slate-1: #fcfcfd;
+                --slate-3: #f0f0f3;
+                --slate-4: #e8e8ec;
+                --slate-6: #d9d9e0;
+                --slate-11: #60646c;
+                --slate-12: #1c2024;
+
+                --blue-2: #f4faff;
+                --blue-4: #d5efff;
+                --blue-9: #0090ff;
+                --blue-11: #0d74ce;
+
+                --background: var(--slate-1);
+                --foreground: var(--slate-12);
+                --muted-foreground: var(--slate-11);
+                --border: var(--slate-6);
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            html {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            body {
+                font-family:
+                    "Inter",
+                    -apple-system,
+                    "Segoe UI",
+                    Roboto,
+                    Arial,
+                    sans-serif;
+                font-size: 12px;
+                line-height: 1.5;
+                color: var(--foreground);
+                background: var(--slate-3);
+            }
+
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+
+            /* A4-shaped sheet for on-screen preview; flattens away in print. */
+            .page {
+                max-width: 794px; /* ~210mm at 96dpi */
+                margin: 32px auto;
+                padding: 40px 42px;
+                background: var(--background);
+                border: 1px solid var(--border);
+            }
+
+            /* ── Two-column layout (template 1: wide main + tinted sidebar) ── */
+
+            .layout {
+                display: grid;
+                grid-template-columns: 1fr 320px;
+                gap: 28px;
+                align-items: stretch;
+            }
+
+            .sidebar {
+                background: var(--blue-2);
+                padding: 24px 20px;
+            }
+
+            /* ── Headings ───────────────────────────────────────────── */
+
+            h2 {
+                font-size: 11px;
+                font-weight: 700;
+                letter-spacing: 1.8px;
+                text-transform: uppercase;
+                color: var(--blue-11);
+                padding-bottom: 5px;
+                border-bottom: 1px solid var(--border);
+                margin-bottom: 10px;
+                break-after: avoid;
+            }
+
+            section {
+                margin-top: 20px;
+            }
+
+            .main > section:first-of-type,
+            .sidebar > section:first-of-type {
+                margin-top: 0;
+            }
+
+            /* ── Main column: header ────────────────────────────────── */
+
+            .cv-header {
+                display: flex;
+                align-items: center;
+                gap: 18px;
+                margin-bottom: 20px;
+            }
+
+            .cv-header h1 {
+                font-size: 30px;
+                font-weight: 700;
+                letter-spacing: -0.02em;
+                color: var(--blue-11);
+            }
+
+            .cv-header .role {
+                font-size: 15px;
+                font-weight: 500;
+                margin-top: 2px;
+            }
+
+            .cv-header .summary {
+                margin-top: 10px;
+                font-size: 12px;
+                color: var(--muted-foreground);
+            }
+
+            /* Marker highlight, as in the portfolio's About intro. */
+            .highlight {
+                background: var(--blue-4);
+                padding: 0 2px;
+                color: var(--foreground);
+            }
+
+            /* ── Main column: experience entries ────────────────────── */
+
+            .entry {
+                margin-bottom: 14px;
+            }
+
+            .entry:last-child {
+                margin-bottom: 0;
+            }
+
+            .entry .company {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: baseline;
+                gap: 2px 16px;
+                font-size: 13px;
+                break-after: avoid;
+            }
+
+            .entry .company strong {
+                font-weight: 700;
+            }
+
+            .entry .company .loc {
+                color: var(--muted-foreground);
+            }
+
+            .role-line {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: baseline;
+                gap: 2px 16px;
+                margin-top: 2px;
+                break-after: avoid;
+            }
+
+            .role-line .job {
+                font-size: 12.5px;
+                font-weight: 500;
+            }
+
+            .dates {
+                font-size: 11.5px;
+                color: var(--muted-foreground);
+                white-space: nowrap;
+            }
+
+            /* Clock icon beside work-experience dates only (.entry scope
+               excludes the volunteering rows). */
+            .entry .dates {
+                display: inline-flex;
+                align-items: center;
+                gap: 4px;
+            }
+
+            .entry .dates .icon {
+                width: 11px;
+                height: 11px;
+                flex-shrink: 0;
+            }
+
+            .entry ul {
+                margin: 5px 0 0 16px;
+                color: var(--muted-foreground);
+            }
+
+            .entry li {
+                margin-bottom: 3px;
+            }
+
+            /* ── Main column: compact rows (volunteering) ───────────── */
+
+            .rows {
+                list-style: none;
+            }
+
+            .row {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: baseline;
+                gap: 2px 14px;
+                padding: 4px 0;
+            }
+
+            .row + .row {
+                border-top: 1px dashed var(--border);
+            }
+
+            .row .what {
+                flex: 1 1 320px;
+            }
+
+            .row .what strong {
+                font-weight: 600;
+                font-size: 12px;
+            }
+
+            .row .what .detail {
+                color: var(--muted-foreground);
+                font-size: 11.5px;
+            }
+
+            /* ── Sidebar ────────────────────────────────────────────── */
+
+            /* Round profile photo beside the name, as in the portfolio hero. */
+            .photo {
+                width: 104px;
+                height: 104px;
+                border-radius: 50%;
+                border: 2px solid var(--border);
+                object-fit: cover;
+                flex-shrink: 0;
+            }
+
+            .sidebar ul {
+                list-style: none;
+            }
+
+            .contact-list {
+                font-size: 11px;
+            }
+
+            .contact-list li {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                margin-bottom: 4px;
+                word-break: break-word;
+            }
+
+            /* Nudge the icon down so it centers on the first text line even
+               when a long URL wraps. */
+            .contact-list .icon {
+                width: 16px;
+                height: 16px;
+                flex-shrink: 0;
+                margin-top: 2px;
+                color: var(--blue-11);
+            }
+
+            .contact-list .primary {
+                color: var(--blue-11);
+                font-weight: 500;
+            }
+
+            .group-label {
+                font-size: 10.5px;
+                font-style: italic;
+                color: var(--muted-foreground);
+                margin: 10px 0 5px;
+            }
+
+            .group-label:first-of-type {
+                margin-top: 0;
+            }
+
+            /* Plain bulleted skill list, as in the reference template. */
+            .sidebar ul.skill-list {
+                list-style: disc;
+                margin-left: 15px;
+                font-size: 11px;
+            }
+
+            .skill-list li {
+                margin-bottom: 3px;
+            }
+
+            .lang-list {
+                font-size: 11px;
+            }
+
+            .lang-list li {
+                margin-bottom: 3px;
+            }
+
+            .lang-list .label {
+                color: var(--muted-foreground);
+            }
+
+            .award-list {
+                font-size: 11px;
+            }
+
+            .award-list li {
+                margin-bottom: 4px;
+            }
+
+            .award-list strong {
+                font-weight: 600;
+            }
+
+            .award-list .label {
+                color: var(--muted-foreground);
+            }
+
+            .edu {
+                margin-bottom: 10px;
+                font-size: 11px;
+            }
+
+            .edu:last-child {
+                margin-bottom: 0;
+            }
+
+            .edu strong {
+                display: block;
+                font-size: 11.5px;
+                font-weight: 600;
+            }
+
+            .edu .where,
+            .edu .when {
+                color: var(--muted-foreground);
+            }
+
+            /* ── Print: tuned so the whole CV fits one A4 page ──────── */
+
+            @page {
+                size: A4;
+                margin: 9mm 10mm;
+            }
+
+            @media print {
+                body {
+                    background: #ffffff;
+                    font-size: 10.5px;
+                    line-height: 1.45;
+                }
+
+                .page {
+                    max-width: none;
+                    margin: 0;
+                    padding: 20px;
+                    border: none;
+                }
+
+                /* Stretch the tinted sidebar to the full page height, like the
+               template. Slightly under the printable height to avoid a
+               rounding-error second page. */
+                .layout {
+                    min-height: 275mm;
+                    grid-template-columns: 1fr 300px;
+                    gap: 24px;
+                }
+
+                .cv-header h1 {
+                    font-size: 26px;
+                }
+
+                .cv-header .role {
+                    font-size: 13px;
+                }
+
+                .cv-header .summary {
+                    font-size: 10.5px;
+                }
+
+                h2 {
+                    font-size: 9.5px;
+                }
+
+                .entry .company {
+                    font-size: 11.5px;
+                }
+
+                .role-line .job {
+                    font-size: 11px;
+                }
+
+                .dates {
+                    font-size: 10px;
+                }
+
+                .entry .dates .icon {
+                    width: 10px;
+                    height: 10px;
+                }
+
+                .row .what strong {
+                    font-size: 10.5px;
+                }
+
+                .row .what .detail {
+                    font-size: 10px;
+                }
+
+                .photo {
+                    width: 92px;
+                    height: 92px;
+                }
+
+                .sidebar {
+                    padding: 18px 16px;
+                }
+
+                .sidebar section {
+                    margin-top: 15px;
+                }
+
+                .edu {
+                    margin-bottom: 7px;
+                }
+
+                .contact-list,
+                .lang-list,
+                .award-list,
+                .sidebar ul.skill-list,
+                .edu {
+                    font-size: 10px;
+                }
+
+                .contact-list .icon {
+                    width: 11px;
+                    height: 11px;
+                    margin-top: 1.5px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="page">
+            <div class="layout">
+                <div class="main">
+                    <header class="cv-header">
+                        <img
+                            class="photo"
+                            src="data:image/jpeg;base64,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"
+                            alt="Miguel Rocha"
+                            width="104"
+                            height="104"
+                        />
+                        <div>
+                            <h1>Miguel Rocha</h1>
+                            <p class="role">Software Engineer</p>
+                        </div>
+                    </header>
+
+                    <section id="experience">
+                        <h2>Work Experience</h2>
+
+                        <article class="entry">
+                            <p class="company">
+                                <span
+                                    ><strong>University of Porto</strong
+                                    ><span class="loc">, Porto, Portugal</span></span
+                                >
+                                <span class="dates"
+                                    ><svg
+                                        class="icon"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        aria-hidden="true"
+                                    >
+                                        <circle cx="12" cy="12" r="10" />
+                                        <polyline points="12 6 12 12 16 14" /></svg
+                                    >2025 – Present</span
+                                >
+                            </p>
+                            <div class="role-line">
+                                <span class="job"
+                                    >Information Systems Developer &amp; Communications
+                                    Assistant</span
+                                >
+                            </div>
+                            <ul>
+                                <li>
+                                    Developed and deployed an internal volunteer management portal
+                                    to optimize data tracking and project coordination
+                                </li>
+                                <li>
+                                    Designed and maintained custom web applications and tailored
+                                    digital tools that automate internal workflows and improve
+                                    performance
+                                </li>
+                                <li>
+                                    Provided IT support and system administration, ensuring
+                                    continuous availability of the unit's digital platforms and
+                                    institutional content (CMS)
+                                </li>
+                            </ul>
+                        </article>
+
+                        <article class="entry">
+                            <p class="company">
+                                <span
+                                    ><strong>TreeTree2</strong
+                                    ><span class="loc">, Remote · Volunteer</span></span
+                                >
+                                <span class="dates"
+                                    ><svg
+                                        class="icon"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        aria-hidden="true"
+                                    >
+                                        <circle cx="12" cy="12" r="10" />
+                                        <polyline points="12 6 12 12 16 14" /></svg
+                                    >2025 – Present</span
+                                >
+                            </p>
+                            <div class="role-line">
+                                <span class="job">Software Engineer</span>
+                            </div>
+                            <ul>
+                                <li>
+                                    Architected and built the entire front-end portal for Prisma:
+                                    multi-tenant architecture, cross-domain SSO, an accessible
+                                    WAI-ARIA-compliant theme system, and a DAG learning-path map
+                                    (Sugiyama layout)
+                                </li>
+                                <li>
+                                    Engineered an interactive form and evaluation engine with custom
+                                    attempt lifecycles, real-time autosave, and per-attempt
+                                    anti-cheat randomization
+                                </li>
+                                <li>
+                                    Designing and building Folhas end-to-end — scalable data models,
+                                    backend APIs, and frontend dashboard — plus an AI-powered
+                                    scraping bot with human-in-the-loop validation
+                                </li>
+                            </ul>
+                        </article>
+                    </section>
+
+                    <section id="volunteering">
+                        <h2>Volunteering</h2>
+                        <ul class="rows">
+                            <li class="row">
+                                <span class="what">
+                                    <strong
+                                        >Contest Operations Volunteer &amp; International Team
+                                        Guide</strong
+                                    >
+                                    <span class="detail">
+                                        — ANPC, EGOI 2026 · Cesenatico, Italy</span
+                                    >
+                                </span>
+                                <span class="dates">May 2026</span>
+                            </li>
+                            <li class="row">
+                                <span class="what">
+                                    <strong
+                                        >CS, Python &amp; STEM Instructor · ONIA Technical
+                                        Reviewer</strong
+                                    >
+                                    <span class="detail">
+                                        — TreeTree2 (AfterSchool, Alpha, Primeiros Bits) · Lisbon
+                                        &amp; Remote</span
+                                    >
+                                </span>
+                                <span class="dates">2025 – 2026</span>
+                            </li>
+                            <li class="row">
+                                <span class="what">
+                                    <strong>Founder and Lead Organizer</strong>
+                                    <span class="detail">
+                                        — Oh My Code, youth competitive programming challenge ·
+                                        Leiria</span
+                                    >
+                                </span>
+                                <span class="dates">Jan 2025 – May 2025</span>
+                            </li>
+                            <!--<li class="row">
+                                <span class="what">
+                                    <strong
+                                        >Digital Literacy Instructor and Brand Ambassador</strong
+                                    >
+                                    <span class="detail">
+                                        — E-REDES / DGE, Academia Digital para Pais (4th &amp; 5th
+                                        editions) · Leiria</span
+                                    >
+                                </span>
+                                <span class="dates">2024 – 2025</span>
+                            </li>-->
+                        </ul>
+                    </section>
+                </div>
+
+                <aside class="sidebar">
+                    <section id="contact">
+                        <h2>Contact</h2>
+                        <ul class="contact-list">
+                            <li>
+                                <svg
+                                    class="icon"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    aria-hidden="true"
+                                >
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                                <span>Porto, Portugal</span>
+                            </li>
+                            <li>
+                                <svg
+                                    class="icon"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                                    />
+                                    <polyline points="22,6 12,13 2,6" />
+                                </svg>
+                                <a href="mailto:miguelrocha.dev@gmail.com"
+                                    >miguelrocha.dev@gmail.com</a
+                                >
+                            </li>
+                            <li>
+                                <svg
+                                    class="icon"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    aria-hidden="true"
+                                >
+                                    <circle cx="12" cy="12" r="10" />
+                                    <line x1="2" y1="12" x2="22" y2="12" />
+                                    <path
+                                        d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                                    />
+                                </svg>
+                                <a href="https://miguelrocha.dev">miguelrocha.dev</a>
+                            </li>
+                            <li>
+                                <svg
+                                    class="icon"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+                                    />
+                                </svg>
+                                <a href="https://github.com/mmroch4">mmroch4</a>
+                            </li>
+                            <li>
+                                <svg
+                                    class="icon"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"
+                                    />
+                                </svg>
+                                <a href="https://www.linkedin.com/in/miguelmartinsrocha/"
+                                    >in/miguelmartinsrocha</a
+                                >
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section id="skills">
+                        <h2>Skills</h2>
+
+                        <ul class="skill-list">
+                            <li>Full-Stack Development</li>
+                            <li>Software Engineering</li>
+                            <li>Algorithms &amp; Logic</li>
+                            <li>Web Applications</li>
+                            <li>Responsive UI</li>
+                            <li>TypeScript</li>
+                            <li>React.js</li>
+                            <li>Next.js</li>
+                            <li>Node.js</li>
+                        </ul>
+                    </section>
+
+                    <section id="education">
+                        <h2>Education</h2>
+                        <div class="edu">
+                            <strong>Bachelor in Computer Science</strong>
+                            <span class="where">University of Porto · Porto</span><br />
+                            <span class="when">Sep 2025 – Present</span>
+                        </div>
+                        <div class="edu">
+                            <strong>Algorithms and Data Structures</strong>
+                            <span class="where">TreeTree2 · Lisbon</span><br />
+                            <span class="when">Feb 2025 – Jun 2025</span>
+                        </div>
+                        <div class="edu">
+                            <strong>Software Engineering</strong>
+                            <span class="where">Rocketseat · Remote</span><br />
+                            <span class="when">Jun 2023 – Jun 2024</span>
+                        </div>
+                    </section>
+
+                    <section id="awards">
+                        <h2>Awards &amp; Competitions</h2>
+                        <ul class="award-list">
+                            <li>
+                                <strong>ICPC SWERC 2025</strong>
+                                <span class="label">— 85th Place</span>
+                            </li>
+                            <li>
+                                <strong>MIUP 2025</strong>
+                                <span class="label">— Bronze Medal (4th Place)</span>
+                            </li>
+                            <li>
+                                <strong>Prémio Pedro Matos 2025</strong>
+                                <span class="label">— 1st Place</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section id="languages">
+                        <h2>Languages</h2>
+                        <ul class="lang-list">
+                            <li><strong>Portuguese</strong> <span class="label">— Native</span></li>
+                            <li>
+                                <strong>English</strong>
+                                <span class="label">— Proficient (C1)</span>
+                            </li>
+                        </ul>
+                    </section>
+                </aside>
+            </div>
+        </main>
+    </body>
+</html>
