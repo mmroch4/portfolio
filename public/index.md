@@ -111,7 +111,7 @@ Remote · Volunteer · 2025 – Present
 ## Awards & Competitions
 
 ### MIUP 2026 — 10th Place
-17 Oct 2026 · Évora, Portugal
+Oct 2026 · Évora, Portugal
 
 - Represented the University of Porto in the Maratona Inter-Universitária de Programação
   (MIUP 2026), held at the University of Évora.

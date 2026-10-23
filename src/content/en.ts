@@ -172,7 +172,7 @@ export const en: Dictionary = {
 
     awards: [
         {
-            date: "17 Oct 2026",
+            date: "Oct 2026",
             title: "MIUP 2026",
             subtitle: "Évora, Portugal",
             badge: "10th Place",
