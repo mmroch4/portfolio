@@ -172,6 +172,17 @@ export const en: Dictionary = {
 
     awards: [
         {
+            date: "17 Oct 2026",
+            title: "MIUP 2026",
+            subtitle: "Évora, Portugal",
+            badge: "10th Place",
+            bulletPoints: [
+                "Represented the University of Porto in the Maratona Inter-Universitária de Programação (MIUP 2026), held at the University of Évora.",
+                "Competed as part of team 'int g[100001][100001]' alongside Pedro Pereira and Pedro Gonçalves.",
+                "Secured 10th place nationwide in the competition.",
+            ],
+        },
+        {
             date: "Nov 2025",
             title: "ICPC SWERC 2025",
             subtitle: "Lisbon, Portugal",

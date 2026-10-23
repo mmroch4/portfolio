@@ -111,6 +111,14 @@ Remoto · Voluntariado · 2025 – Presente
 
 ## Prémios & Competições
 
+### MIUP 2026 — 10.º Lugar
+17 Out 2026 · Évora, Portugal
+
+- Representação da Universidade do Porto na Maratona Inter-Universitária de Programação
+  (MIUP 2026), realizada na Universidade de Évora.
+- Participação na equipa «int g[100001][100001]», em conjunto com Pedro Pereira e Pedro Gonçalves.
+- Conquista do 10.º lugar a nível nacional na competição.
+
 ### ICPC SWERC 2025 — 85.º Lugar
 Nov 2025 · Lisboa, Portugal
 
